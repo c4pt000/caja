@@ -2301,7 +2301,10 @@ caja_property_browser_update_contents (CajaPropertyBrowser *property_browser)
 
             if (!got_categories)
             {
+                /*for some reason display_name comes back NULL from xmlGetProp in some cases
                 display_name = xmlGetProp (cur_node, (const xmlChar *) "display_name");
+                */
+                display_name = xmlGetProp (cur_node, (const xmlChar *) "name");
                 image = xmlGetProp (cur_node, (const xmlChar *) "image");
 
                 make_category_link (property_browser,
